@@ -9,6 +9,7 @@
     --headline: hsl(210, 11%, 15%);
     --brand-beige: hsl(39, 100%, 97%);
     --brand-light: hsl(calc(var(--hue) - 22), 23%, 89%);
+    --brand-light-2: hsl(calc(var(--hue) + 10), 14%, 97%);
     --brand-dark: hsl(var(--hue), 100%, 14%);
     --paragraph: hsl(210, 9%, 31%);
     --headline: hsl(210, 11%, 15%);
@@ -25,7 +26,7 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -44,12 +45,12 @@ body {
 }
 
 .wrapper {
+    width: min(50rem, 100%);
     margin-inline: auto;
-    width: 37.5rem;
     padding-inline: 2.4rem;
 }
 
-img{
+img {
     max-width: 100%;
 }
 
@@ -57,7 +58,7 @@ ul {
     list-style: none;
 }
 
-section{
+section {
     padding-block: 10rem;
 }
 
@@ -67,7 +68,7 @@ section{
 #home::before {
     content: '';
     width: 100%;
-    height: calc(108rem + var(--nav-height));
+    height: calc(150% + var(--nav-height));
     background-color: var(--brand-light);
     display: block;
     position: absolute;
@@ -77,10 +78,11 @@ section{
 }
 
 #home {
+    padding-block: 0;
     padding-top: calc(4.1rem + var(--nav-height));
 }
 
-#home .button{
+#home .button {
     margin: 0 auto 6rem;
 }
 
@@ -100,8 +102,7 @@ section{
 }
 
 #home .stats {
-    width: 32.7rem;
-    height: 47rem;
+    width: 100%;
 
     padding-block: 4rem;
     margin-inline: auto;
@@ -126,18 +127,20 @@ section{
     color: var(--primary-color);
 }
 
-section header h1{
+section header h1 {
     font-size: 3.4rem;
     color: var(--headline);
     margin-bottom: 2.4rem;
 }
-section header h2{
+
+section header h2 {
     font-size: 3rem;
     line-height: 3.9rem;
     color: var(--headline);
     margin-bottom: 6rem;
 }
-section header h4{
+
+section header h4 {
     font-size: 1.4rem;
     color: var(--primary-color);
     margin-bottom: 1.6rem;
@@ -175,28 +178,28 @@ section .content p {
 
 
 /*=============== #Custon Colors ==================*/
-#services .card circle{
+#services .card circle {
     fill: var(--brand-light);
 }
 
 
 #navigation .logo path[fill*="#00856F"],
-#backToTop circle{
+#backToTop circle {
     fill: var(--primary-color);
 }
 
 #navigation button.open-menu path[stroke*="#00856F"],
-#contact li path{
+#contact li path {
     stroke: var(--primary-color);
 }
 
-#navigation.scroll button.open-menu path[stroke*="#00856F"]{
+#navigation.scroll button.open-menu path[stroke*="#00856F"] {
     stroke: white;
 }
 
 
 body.menu-expanded #navigation .logo path,
-#navigation.scroll .logo path{
+#navigation.scroll .logo path {
     fill: white;
 }
 
@@ -237,6 +240,11 @@ nav button {
     cursor: pointer;
 }
 
+nav .menu,
+nav .close-menu {
+    position: fixed;
+}
+
 /*=============== Menu expandido ==================*/
 body.menu-expanded {
     overflow: hidden;
@@ -264,7 +272,7 @@ body.menu-expanded .close-menu {
 }
 
 body.menu-expanded .menu {
-    position: fixed;
+
     left: 0;
     top: 0;
     background-color: var(--primary-color);
@@ -338,7 +346,7 @@ body.menu-expanded button path {
 /*=============== SERVICES ==================*/
 
 
-#services .cards{
+#services .cards {
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
@@ -354,48 +362,52 @@ body.menu-expanded button path {
     border-radius: .6rem;
 }
 
-#services .card h3{
+#services .card h3 {
     margin-block: 1.6rem;
 }
 
 /*=============== ABOUT ==================*/
-#about{
+#about {
     text-align: left;
     background: var(--brand-beige);
 }
 
-#about header h2{
+#about header h2 {
     margin-bottom: 2.4rem;
 }
 
-#about .content p{
+#about .content p {
     margin: 2.4rem auto 6rem;
 }
 
 /*=============== CONTACT ==================*/
-#contact{
+#contact {
     text-align: left;
 }
 
-#contact header{
+#contact header {
     margin-bottom: 3.2rem;
 }
 
-#contact ul{
+#contact ul {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
     margin-bottom: 3.2rem;
 }
 
-#contact ul li{
+#contact .button {
+    margin-bottom: 6rem;
+}
+
+#contact ul li {
     display: flex;
     align-items: center;
     gap: .8rem;
 }
 
 /*=============== FOOTER ==================*/
-#footer{
+#footer {
     background-color: var(--primary-color);
     padding-block: 6rem;
     text-align: left;
@@ -405,21 +417,264 @@ body.menu-expanded button path {
     color: white;
 }
 
-#footer .logo{
+#footer .logo {
     display: inline-block;
     margin-bottom: 2.4rem;
 }
 
-#footer .logo svg{
+#footer .logo svg {
     width: 23.6rem;
     height: 3.1rem;
 }
 
-#footer .logo path{
+#footer .logo path {
     fill: white;
 }
 
-#footer .socials-links{
+#footer .socials-links {
     justify-content: flex-start;
 
+}
+
+@media (min-width: 1024px) {
+
+    body{
+        overflow: auto;
+    }
+
+    #home {
+        padding-top: var(--nav-height);
+    }
+
+    #home::before{
+        height: calc(90% + var(--nav-height));
+    }
+
+    .wrapper {
+        width: min(112rem, 100%);
+        display: grid;
+    }
+
+    .col-1{
+        grid-area: A;
+    }
+
+    .col-2{
+        grid-area: B;
+    }
+
+    section {
+        padding-block: 16rem;
+    }
+
+    section header h2{
+        font-size: 4rem;
+        line-height: 5.2rem;
+    }
+
+    nav#navigation .wrapper * {
+        margin: 0;
+        padding: 0;
+        visibility: initial;
+        display: initial;
+        opacity: initial;
+        flex-direction: initial;
+        position: initial;
+        font-size: initial;
+        transform: initial;
+        color: initial;
+        font-weight: initial;
+        background-color: initial;
+        filter: initial;
+    }
+
+    nav#navigation .close-menu,
+    nav#navigation .open-menu,
+    nav#navigation .socials-links {
+        display: none;
+    }
+
+    nav#navigation .menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
+
+    nav#navigation .menu ul:nth-child(1) {
+        display: flex;
+        gap: 3.2;
+    }
+
+    nav#navigation .menu ul li a {
+        color: var(--primary-color);
+        opacity: .7;
+    }
+
+    nav#navigation .menu a.button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2.4rem;
+        gap: 16px;
+
+        border: 1px solid var(--primary-color);
+        border-radius: 4rem;
+
+        color: var(--primary-color);
+
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    nav#navigation.scroll .menu ul li a {
+        color: var(--brand-light-2);
+        opacity: .6;
+    }
+
+    nav#navigation.scroll .menu a.button {
+        border-color: white;
+        color: white;
+    }
+
+    nav#navigation .menu li a.active,
+    nav#navigation .menu li a:hover {
+        font-weight: 700;
+        opacity: 1;
+    }
+
+    nav#navigation .menu li a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+
+        position: relative;
+        bottom: -2rem;
+        left: -.7rem;
+
+        transition: width .2s;
+    }
+    
+    nav#navigation.scroll .menu li a::after {
+        background-color: white;
+    }
+    
+    nav#navigation .menu li a.active::after,
+    nav#navigation .menu li a:hover::after {
+        padding-inline: .7rem;
+        width: 100%;
+    }
+
+    nav#navigation.scroll .menu li a.active,
+    nav#navigation.scroll .menu li a:hover {
+        opacity: 1;
+    }
+
+    nav#navigation .menu a.button.active,
+    nav#navigation .menu a.button:hover {
+        border: none;
+        background: var(--primary-color);
+        filter: brightness(1.3);
+        color: white;
+    }
+
+    #home .wrapper{
+        grid-template-columns: 60.5rem 1fr;
+        grid-template-areas: "A B" "C C";
+    }
+
+    #home .col-1{
+        text-align: left;
+        align-self: center;
+    }
+
+    #home h1{
+        font-size: 5.2rem;
+    }
+
+    #home .stats{
+        grid-area: C;
+        flex-direction: row;
+        padding: 6rem;
+        gap: 0;
+    }
+
+    #home .stats .stat + .stat{
+        border-left: 1px solid var(--primary-color);
+    }
+
+    #home .stats .stat{
+        flex: 1;
+    }
+
+    #home .button{
+        margin: 0;
+    }
+
+    #home img{
+        width: 42rem;
+    }
+
+    #services h2{
+        width: 47rem;
+        margin-inline: auto;
+    }
+
+    #services .cards{
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+
+    #services .card{
+        width: 30%;
+        flex-grow: 1;
+    }
+
+    #about .wrapper{
+        grid-template-columns: 48rem 1fr;
+        grid-template-areas: 'B A';
+        gap: 6.7rem;
+    }
+
+    #about .col-1{
+        align-self: center;
+    }
+
+    #abaout .content p{
+        margin-bottom: 0;
+    }
+
+    #contact .wrapper{
+        grid-template-columns: 1fr 57.5rem;
+        grid-template-areas: 'A B';
+    }
+
+    #contact h2{
+        width: 40.4rem
+    }
+
+    #footer{
+        padding-block: 8rem;
+    }
+
+    #footer .wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'A B';
+    }
+
+    #footer .col-1{
+        align-self: center;
+    }
+
+    #footer .col-2{
+        align-self: center;
+        justify-self: end;
+    }
+
+    #footer p{
+        margin-bottom: 0;
+    }
 }
