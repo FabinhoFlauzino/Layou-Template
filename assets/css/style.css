@@ -447,7 +447,7 @@ body.menu-expanded button path {
     }
 
     #home::before{
-        height: calc(90% + var(--nav-height));
+        height: calc(72% + var(--nav-height));
     }
 
     .wrapper {
