@@ -188,6 +188,11 @@ section .content p {
     fill: var(--primary-color);
 }
 
+.logo img{
+    width: 110px;
+    margin-top: 20px;
+}
+
 #navigation button.open-menu path[stroke*="#00856F"],
 #contact li path {
     stroke: var(--primary-color);
